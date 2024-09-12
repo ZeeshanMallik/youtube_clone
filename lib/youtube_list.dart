@@ -1,21 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/data.dart';
 
 
 
 
-
-
-class ImageView extends StatelessWidget {
+class YoutubeList extends StatelessWidget{
+  List dataList = getYouTubeListData();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
+
+    return ListView.builder(
+      itemCount: dataList.length, // Total number of items in the list
+      itemBuilder: (context, index) {
+        //should pass the data instead of the index
+        return YoutubeListItem(position: index);
+      },
+    );
+  }
+}
+
+
+class YoutubeListItem extends StatelessWidget {
+  
+   int position;
+   YoutubeListItem({super.key, required this.position});
+
+  List<YoutubeData> dataList = getYouTubeListData();
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
           children: [
             Container(
               child: Image.asset(
-                'assets/images/lake.jpg',
+                '${dataList[position].imageUrl}',
                 fit: BoxFit.fill,
               ),
             ),
@@ -24,7 +44,7 @@ class ImageView extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(12, 12, 16, 15),
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/lake.jpg'),
+                    backgroundImage: AssetImage('${dataList[position].imageUrl}'),
                   ),
                 ),
 
@@ -32,14 +52,13 @@ class ImageView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Lake View, Switzerland',
+                        Text("${dataList[position].title}",
                           textAlign: TextAlign.left,
                           style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                         ),
 
-                        Text('Name',
+                        Text("${dataList[position].description}",
                           style: TextStyle(fontSize: 11,
                               color: Colors.grey),),
                       ],
@@ -58,8 +77,6 @@ class ImageView extends StatelessWidget {
               ],
             )
           ],
-        ),
-      ),
     );
   }
 }

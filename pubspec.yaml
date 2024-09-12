@@ -61,6 +61,33 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
   - assets/images/youtubeLogo1.jpeg
+  - assets/images/lake.jpg
+  - assets/images/news.jpeg
+  - assets/images/bangalore.jpeg
+  - assets/images/bangalorePalace.jpeg
+  - assets/images/cubbonpark.jpeg
+  - assets/images/lalbagh.jpeg
+  - assets/images/vidhanSoudha.jpeg
+  - assets/images/chennai.jpeg
+  - assets/images/delhi.jpeg
+  - assets/images/redFort.jpeg
+  - assets/images/jamiaMasjid.jpeg
+  - assets/images/indiaGate.jpeg
+  - assets/images/lotusTemple.jpeg
+  - assets/images/hyderabad.jpeg
+  - assets/images/mumbai.jpeg
+  - assets/images/gateWayofIndia.jpeg
+  - assets/images/hajiAliDargah.jpeg
+  - assets/images/shivajiTerminal.jpeg
+  - assets/images/esselWorld.jpeg
+  - assets/images/agra.jpeg
+  - assets/images/indore.jpeg
+  - assets/images/pune.jpeg
+  - assets/images/kolkata.jpeg
+  - assets/images/howrahBridge.jpeg
+  - assets/images/indianMuseum.jpeg
+  - assets/images/scienceCity.jpeg
+  - assets/images/victoriaMemorial.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
