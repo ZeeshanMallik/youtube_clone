@@ -8,7 +8,9 @@ class YoutubeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-
+      shrinkWrap: true,
+      //added to stop the scroll of list view
+      physics: NeverScrollableScrollPhysics(),
       itemCount: dataList.length, //// Total number of items in the list
       itemBuilder: (context, index) {
         //should pass the data instead of the index
