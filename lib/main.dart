@@ -21,7 +21,8 @@ class HomeScreen extends StatelessWidget {
       //main body
         body: Column(
           children: [
-            Expanded(child: YoutubeShortList()),
+            //height should not be hardcoded,try other options too
+            SizedBox(height: 500, child: Expanded(child: YoutubeShortList())),
             Expanded(child: YoutubeList()),
           ]
         ),
