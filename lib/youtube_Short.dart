@@ -3,18 +3,51 @@ import 'package:flutter/material.dart';
 
 import 'data.dart';
 
+main(){
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            Padding(padding: EdgeInsets.all(30)),
+            ShortsSection(),
+            Expanded(child: YoutubeShortList()),
+          ],
+        ),
+      )
+    ),
+  ));
+}
+
+class ShortsSection extends StatelessWidget {
+  const ShortsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset('assets/images/youtubeShorts.png',width: 100, height: 50,),
+        Text('Shorts',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
+      ],
+    );
+  }
+}
+
+
 class YoutubeShortList extends StatelessWidget {
   List dataList = getYouTubeListData();
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      //physics: NeverScrollableScrollPhysics(),
       itemCount: 4,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-      crossAxisSpacing: 4.0,
-      mainAxisSpacing: 4.0),// Total number of items in the list
+      crossAxisSpacing:10.0,
+      mainAxisSpacing: 10.0,
+      childAspectRatio: 1.0),// Total number of items in the list
       itemBuilder: (context, index) {
         //should pass the data instead of the index
         return YouTubeShortItem(position: index);
