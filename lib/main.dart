@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/bottombar.dart';
+import 'package:youtube_clone/youtube_Short.dart';
 import 'package:youtube_clone/youtube_appbar.dart';
 import 'package:youtube_clone/youtube_list.dart';
 
@@ -18,7 +19,12 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(title: YoutubeAppbar()),
 
       //main body
-        body: YoutubeList(),
+        body: Column(
+          children: [
+            Expanded(child: YoutubeShortList()),
+            Expanded(child: YoutubeList()),
+          ]
+        ),
 
 
         //bottom bar
