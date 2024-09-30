@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/videoPlayer/video_demo.dart';
+import 'package:youtube_clone/youtubeApp/data.dart';
 
-import 'data.dart';
 
 main(){
   runApp(MaterialApp(
@@ -25,10 +26,16 @@ class ShortsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Image.asset('assets/images/youtubeShorts.png',width: 100, height: 50,),
-        Text('Shorts',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
+        Row(
+          children: [
+            Image.asset('assets/images/youtubeShorts.png',width: 100, height: 50,),
+            Text('Shorts',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
+          ],
+        ),
+        Padding(padding: EdgeInsets.only(bottom: 20)),
+        SizedBox(height: 500, child: Expanded(child: YoutubeShortList()))
       ],
     );
   }
@@ -46,10 +53,11 @@ class YoutubeShortList extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       crossAxisSpacing:10.0,
-      mainAxisSpacing: 10.0,
-      childAspectRatio: 1.0),// Total number of items in the list
+
+   ),// Total number of items in the list
       itemBuilder: (context, index) {
         //should pass the data instead of the index
+        //return YouTubeShortItem(position: index);
         return YouTubeShortItem(position: index);
       },
     );
@@ -69,14 +77,26 @@ class YouTubeShortItem extends StatelessWidget {
         alignment: Alignment.bottomLeft,
         children: [
 
-          Image.asset(
-            '${dataList[position].imageUrl}',
-              fit: BoxFit.fill,
-            height: double.infinity,
-            width: double.infinity,
+          GestureDetector(onTap: (){
+            print("clicked item at $position");
+
+            //pass postion
+            // or pass video url
+
+            String videourl = dataList[position].videoUrl;
+            Navigator.push(
+                context, MaterialPageRoute
+            (builder: (context) =>VideoScreen(videoURL: videourl,)),
+            );
+          },
+            child: Image.asset('${dataList[position].imageUrl}',
+                fit: BoxFit.fill,
+              height: double.infinity,
+              width: double.infinity,
+            ),
           ),
           Positioned(
-              top: 20,
+              top: 10,
               right: 10,
               child:IconButton(
                 onPressed: () {},

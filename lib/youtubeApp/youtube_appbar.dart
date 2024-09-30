@@ -11,42 +11,53 @@ class YoutubeAppbar extends StatelessWidget {
       title: Row(
         children: [
           SizedBox(
-              width: 40,
+              width: 30,
               child: Image.asset(
-                'assets/images/youtubeLogo1.jpeg',
+                'assets/images/youtubeLogo1.jpeg', height: 50, width: 30,
               )),
           SizedBox(
-            width: 10,
+            width: 3,
           ),
           Text('YouTube',
-            style: TextStyle(fontSize: 20),
-            // color: Colors.white))
+            style: TextStyle(
+              //fontFamily: 'TradeGothicLTStd',
+                fontSize: 22,
+              fontWeight: FontWeight.w700,
+              letterSpacing: -1,
+            ),
+            //color: Colors.black),)
           )],
       ),
 
       actions: [
         Icon(
           Icons.cast,
-          //color: Colors.white,
+          color: Colors.black,
+          size: 28,
         ),
         SizedBox(
           width: 20,
         ),
         Icon(
           Icons.notifications,
-          // color: Colors.white,
+           color: Colors.black,
+          size: 28,
         ),
         SizedBox(
           width: 20,
         ),
         Icon(
           Icons.search,
-          // color: Colors.white,
-        )
+           color: Colors.black,
+          size: 28,
+        ),
+
       ],
 
       //Text('YouTube', style: TextStyle(fontSize: 12,color: Colors.white),
+      
     );
+
   }
 }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_clone/data.dart';
+import 'package:youtube_clone/youtubeApp/data.dart';
 
 class YoutubeList extends StatelessWidget {
   List dataList = getYouTubeListData();
@@ -10,7 +10,7 @@ class YoutubeList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       //added to stop the scroll of list view
-      //physics: NeverScrollableScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
       itemCount: dataList.length, //// Total number of items in the list
       itemBuilder: (context, index) {
         //should pass the data instead of the index
@@ -38,7 +38,8 @@ class YoutubeListItem extends StatelessWidget {
                 image: AssetImage('${dataList[position].imageUrl}'),
                 fit: BoxFit.fill,
               ),
-            )),
+            )
+        ),
         Row(
           children: [
             Container(
